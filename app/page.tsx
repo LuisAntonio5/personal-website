@@ -1,35 +1,52 @@
-import Image from "next/image";
-import Link from 'next/link'
+import Image from '@/node_modules/next/image';
+import Link from '@/node_modules/next/link';
+import Navbar from '@/components/navbar';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-10">
-      <div className="flex text-center flex-row justify-around">
-        <Link
-          href="/"
-          className="px-5 py-4"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold relative underline-animation`}>
-            Home
+    <>
+    <div className="grid grid-rows-[auto, 1fr, 1fr] min-h-screen">
+      <Navbar/>
+      <main className="flex flex-col items-center justify-center px-10 pb-20 text-center">
+        <Image 
+          src={"/portrait.jpg"}
+          width='320'
+          height='320'
+          alt='a picture of me'
+          priority
+          className="self-center rounded-2xl mb-10">
+        </Image>
+        <h1 className="text-2xl font-semibold mb-2">Hey there, I'm Luís!</h1>
+        <h2 className=''>I'm a Software Engineer that's currently looking for a new challenge.</h2>
+        <div>
+          <h2>Read more{" "}
+            <Link 
+              href="/about"
+              className="font-semibold italic relative underline-animation">
+              about me
+            </Link> 
+              {" "}and my{" "}
+            <Link
+              href="/projects"
+              className="font-semibold italic relative underline-animation">
+              projects
+            </Link>
+              .
           </h2>
-        </Link>
-        <Link
-          href="/about"
-          className="px-5 py-4"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold relative underline-animation`}>
-            About            
-          </h2>
-        </Link>
-        <Link
-          href="/about"
-          className="px-5 py-4"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold relative underline-animation`}>
-            Projects            
-          </h2>
-        </Link>
-      </div>
-    </main>
+        </div>
+      </main>
+      <footer className="flex justify-center items-center">
+        <a href="https://www.linkedin.com/in/luisantoniolds/" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon size="2x" icon={faLinkedin} className="mr-3"/>
+        </a>
+        <a href="https://github.com/LuisAntonio5" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon size="2x" icon={faGithub}/>
+        </a>
+      </footer>
+    </div>
+    </>
   );
 }
