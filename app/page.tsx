@@ -1,4 +1,3 @@
-import Image from '@/node_modules/next/image';
 import Link from '@/node_modules/next/link';
 import Navbar from '@/components/navbar';
 
@@ -11,14 +10,13 @@ export default function Home() {
     <div className="grid grid-rows-[auto, 1fr, 1fr] min-h-screen">
       <Navbar/>
       <main className="flex flex-col items-center justify-center px-10 pb-20 text-center">
-        <Image 
+        <img 
           src={"/portrait.jpg"}
           width='320'
           height='320'
           alt='a picture of me'
-          priority
           className="self-center rounded-2xl mb-10">
-        </Image>
+        </img>
         <h1 className="text-2xl font-semibold mb-2">Hey there, I'm Luís!</h1>
         <h2 className=''>I'm a Software Engineer that's currently looking for a new challenge.</h2>
         <div>
